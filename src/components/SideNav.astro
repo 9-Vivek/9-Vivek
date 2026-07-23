@@ -3,7 +3,7 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 const current = Astro.url.pathname;
 const active = (path: string) => current === `${base}${path}` || current.startsWith(`${base}${path}/`);
 const groups = [
-  { label: 'Research', path: 'research', items: [['ACC framework', 'research/acc/'], ['H-BFT', 'research/h-bft/']] },
+  { label: 'Research', path: 'research', items: [['ACC framework', 'research/acc/'], ['H-BFT network', 'research/h-bft/']] },
   { label: 'Projects', path: 'projects', items: [['Digital Center', 'projects/digital-center/'], ['Explorer Engine', 'projects/explorer-engine/'], ['Personal Intelligence Layer', 'projects/pil/']] },
   { label: 'Applied work', path: 'commercial', items: [['Semantic Workspace', 'commercial/semantic-workspace/'], ['AI Systems Institute', 'commercial/ai-systems-institute/']] },
 ];

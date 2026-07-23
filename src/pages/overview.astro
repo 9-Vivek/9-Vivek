@@ -3,11 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 const layers = [
   ['01', 'Direction', 'Active Cognition Computing', 'A framework for software that maintains useful, inspectable context around human intention.', 'research/acc/'],
-  ['02', 'Trust layer', 'H-BFT', 'A specification exploring sovereign, private-by-default replication and coordination.', 'research/h-bft/'],
-  ['03', 'Personal layer', 'PIL', 'A local intelligence layer that mediates context, memory, tools, and user-authored policy.', 'projects/pil/'],
-  ['04', 'Projection layer', 'Explorer Engine', 'A system for deriving task-specific Lenses from graph-indexed source data.', 'projects/explorer-engine/'],
-  ['05', 'Workspace layer', 'Digital Center', 'The primary desktop laboratory for contextual spaces and non-hierarchical organization.', 'projects/digital-center/'],
-  ['06', 'Application layer', 'Semantic Workspace', 'Intent-oriented code navigation and task mapping built over ordinary source trees.', 'commercial/semantic-workspace/'],
+  ['02', 'Network research', 'H-BFT', 'A conceptual protocol for human-bounded node authority, zero-knowledge authentication, and client-encrypted storage.', 'research/h-bft/'],
+  ['03', 'Reasoning layer', 'PIL', 'A filesystem-based reasoning build system that derives state and runs specialized analysis passes over it.', 'projects/pil/'],
+  ['04', 'Exploration layer', 'Explorer Engine', 'A deterministic engine that separates structured queries, result sets, and interchangeable renderers.', 'projects/explorer-engine/'],
+  ['05', 'Workspace layer', 'Digital Center', 'A local-first capture-and-return workspace with shared references, Context Spaces, and explicit AI context.', 'projects/digital-center/'],
+  ['06', 'Developer product', 'Semantic Workspace', 'Repository-native semantic metadata, saved views, and structured context bundles for developers and coding agents.', 'commercial/semantic-workspace/'],
 ];
 ---
 <BaseLayout title="ACC Ecosystem Overview — Vivek Pragada" description="An overview of Active Cognition Computing and the systems that make up its research ecosystem.">
@@ -31,6 +31,6 @@ const layers = [
         ))}
       </div>
     </section>
-    <section class="border-t border-line pt-12"><h2 class="text-2xl font-medium">How the components connect</h2><div class="prose-doc mt-5"><p>The framework defines what a cognitive-centric system should preserve. H-BFT asks how that state can remain sovereign across devices. PIL mediates local models and tools. Explorer Engine turns indexed relationships into useful views. Digital Center provides the experimental workspace, while Semantic Workspace tests the same principles in a constrained commercial setting.</p><p>The AI Systems Institute sits alongside the stack as an applied research and education effort: a place to develop methods, technical depth, and programs around human-directed AI systems.</p></div></section>
+    <section class="border-t border-line pt-12"><h2 class="text-2xl font-medium">How the components connect</h2><div class="prose-doc mt-5"><p>The framework defines the broader direction. Digital Center is the primary workspace where context, references, time, and active execution meet. PIL explores how raw personal information can be transformed into explicit derived state and layered reasoning outputs. Explorer Engine supplies a generic way to query structured collections and render the same results through different views.</p><p>H-BFT is the more speculative infrastructure branch, asking how identity, routing, storage, and recovery might work when sensitive state must remain sovereign. Semantic Workspace applies semantic organization to codebases, while the AI Systems Institute applies systems thinking to technical education through drills and connected artifacts.</p></div></section>
   </article>
 </BaseLayout>

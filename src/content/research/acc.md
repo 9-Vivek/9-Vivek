@@ -32,7 +32,7 @@ This does not imply opaque automation. A useful cognitive system should be:
 
 ## Research direction
 
-The framework is being tested through working software. Digital Center explores contextual spaces and overlays. Semantic Workspace tests intent-oriented code navigation. Explorer Engine investigates view projection over graph-indexed data, while H-BFT asks what infrastructure is required when cognitive state must remain sovereign.
+The framework is being tested through several distinct systems. Digital Center explores capture-and-return workflows, Context Spaces, overlays, and explicit model context. PIL treats personal understanding as derived state produced by a reasoning build graph. Explorer Engine separates structured queries from interchangeable representations, while Semantic Workspace tests semantic navigation and AI context inside codebases. H-BFT asks what network assumptions would be required if sensitive cognitive state must remain sovereign.
 
 > The goal is not software that thinks for the user. It is software that helps the user sustain thought.
 

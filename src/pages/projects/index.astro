@@ -5,7 +5,7 @@ import DocumentCard from '../../components/DocumentCard.astro';
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 const docs = await getCollection('projects');
 ---
-<BaseLayout title="Projects — Vivek" description="Local-first applications, developer tools, projection engines, and distributed-systems research.">
-  <header class="shell py-14 sm:py-20"><p class="eyebrow">Project index</p><div class="mt-5 max-w-2xl"><h1 class="text-4xl font-medium tracking-[-.035em] sm:text-5xl">Experimental systems.</h1><p class="mt-6 text-base leading-8 text-muted">The primary engineering environments used to test ACC: a desktop workspace, a projection engine, and a personal intelligence layer.</p></div></header>
+<BaseLayout title="Projects — Vivek Pragada" description="A local-first personal workspace, a deterministic exploration engine, and a filesystem-based reasoning system.">
+  <header class="shell py-14 sm:py-20"><p class="eyebrow">Project index</p><div class="mt-5 max-w-2xl"><h1 class="text-4xl font-medium tracking-[-.035em] sm:text-5xl">Experimental systems.</h1><p class="mt-6 text-base leading-8 text-muted">Three distinct engineering efforts: Digital Center for capture and return, Explorer Engine for structured exploration, and PIL for continuously derived understanding.</p></div></header>
   <section class="shell pb-16">{docs.map((doc, i) => <DocumentCard title={doc.data.title} description={doc.data.description} href={`${base}projects/${doc.id}/`} tags={doc.data.tags} index={String(i+1).padStart(2,'0')} label={doc.data.category} />)}</section>
 </BaseLayout>

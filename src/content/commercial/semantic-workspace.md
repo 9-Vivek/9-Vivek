@@ -1,27 +1,32 @@
 ---
 title: Semantic Workspace
-description: An open-core VS Code extension that maps files and tasks by utility and intent using metadata sidecars.
+description: An open-core developer tool that adds a Git-friendly semantic layer above code files for navigation, architecture, and AI context.
 publishDate: 2026-02-20
-tags: [VS Code, TypeScript, Metadata]
-summary: Intent-oriented navigation for codebases without changing their physical layout.
+tags: [VS Code, Metadata, Developer Tools]
+summary: Navigate codebases by purpose, feature, layer, ownership, and relationships rather than path alone.
 featured: true
-status: Prototype
-category: Applied product
+status: Foundation and MVP planning
+category: Open-core product
 ---
 
-Semantic Workspace applies ACC principles to a narrow commercial setting: navigating and coordinating work inside a software codebase.
+Semantic Workspace starts from a limitation of the folder tree: a file has one physical path, but it may participate in several features, runtime layers, ownership boundaries, tests, and architectural relationships.
 
-## Sidecars, not migration
+The product adds an explicit semantic layer above the repository so developers and coding agents can understand files by purpose and intent without changing the source tree.
 
-The extension keeps the filesystem intact. Small metadata sidecars describe functional utility, task intent, and semantic relationships. Multiple task-specific maps can coexist over the same source tree without changing paths or duplicating code.
+## Repository-native metadata
 
-## Product boundary
+Metadata lives inside a Git-friendly `.semantic-workspace/` directory. A typed schema can describe fields such as feature, layer, purpose, runtime, owner, related files, and agent notes. The same directory stores file annotations, saved views, and exported context bundles.
 
-The open-core foundation keeps metadata portable and inspectable. Product value comes from reliable workflows around task mapping, team context, visualization, and integration—not from locking source code into a proprietary format.
+Early workflows are deliberately manual. Annotation forces architectural intent to become explicit and provides evidence about which metadata is valuable before inference is introduced.
 
-## Design constraints
+## Local developer tool
 
-- Graceful degradation when metadata is absent.
-- Inspectable, versionable relationships.
-- Useful navigation before model inference is introduced.
-- Clear separation between repository truth and generated interpretation.
+The first product is a local VS Code extension supported by CLI tooling. It reads the repository metadata, groups files through semantic projections, and allows teams to preserve views by feature, layer, owner, or task.
+
+It can also export concise context bundles for AI coding tools. Instead of sending a raw file dump, a bundle can describe the relevant files, their purposes and relationships, likely risks, owners, and tests. Semantic Workspace is intended to improve coding agents, not replace them.
+
+## Open-core direction
+
+The schema, local storage format, extension, CLI, saved views, and context export are intended to remain open. Potential paid value sits around team collaboration, semantic pull-request summaries, ownership maps, architecture-drift detection, managed integrations, and organization-level context across multiple repositories.
+
+AI-assisted annotation comes later. Models may suggest metadata, infer relationships, or assemble task-aware context, but human review remains part of the control boundary.

@@ -1,32 +1,46 @@
 ---
-title: H-BFT Specification
-description: A research specification for sovereign, private-by-default replication and coordination across trusted local-first systems.
+title: Human-Anchored Byzantine Fault Tolerant Network
+description: A conceptual network-layer specification that anchors node creation to finite human attention while separating identity, routing, and encrypted storage.
 publishDate: 2026-01-28
-tags: [Consensus, Security, Distributed Systems]
-summary: Infrastructure research for resilient, user-controlled coordination.
+tags: [Byzantine Fault Tolerance, Zero Knowledge, Network Security]
+summary: A proposal for human-bounded node authority, unlinkable credentials, and client-encrypted infrastructure.
 featured: true
-status: Specification draft
-category: Research / Infrastructure
+status: Conceptual whitepaper
+category: Research / H-BFT
 ---
 
-H-BFT asks what kind of network substrate is appropriate when personal cognitive state must remain private, available, and under the user's authority. It is a consensus and network-layer research specification for small groups of trusted devices and collaborators rather than an attempt to build a global public ledger.
+The Human-Anchored Byzantine Fault Tolerant Network (H-BFT) is a conceptual network architecture for limiting automated Sybil attacks without binding activity to a conventional public identity.
 
-## Problem boundary
+The proposal changes what counts as a network node. Instead of treating an account, address, or API credential as atomic, it defines an active node as a persistent cryptographic Root Seed whose creation and continued attestation require a bounded unit of human attention called **one-unit-focus (1uf)**.
 
-Local-first applications work well on one device. The harder problem begins when state must move between a laptop, desktop, mobile device, and a small set of collaborators without making a central service the final authority.
+## Human-bounded node authority
 
-H-BFT explores membership, replication, conflict boundaries, and recovery in that environment. Byzantine fault-tolerance is a reference point, but the specification prioritizes bounded trust domains, understandable operations, and private discovery.
+Digital identifiers can be copied at negligible cost. H-BFT attempts to make active node creation proportional to a physically scarce input: human time and attention. A person may maintain several independent Root Seeds for different parts of digital life, but each seed requires its own human-attested lease.
 
-## Design priorities
+The intended security argument is that the global population of active, honestly maintained seeds can satisfy the classical Byzantine fault-tolerance condition `n ≥ 3f + 1` because attackers cannot automate seed creation without acquiring equivalent human effort.
 
-- Private-by-default discovery and transport.
-- Explicit membership rather than ambient global identity.
-- Predictable recovery after devices have been offline.
-- Legible failure states and operator-controlled repair.
-- A specification small enough to audit and implement independently.
+This depends on a difficult unresolved premise: the 1uf interaction must remain easy for humans, expensive to automate, inexpensive to verify, accessible, and resistant to outsourced solving. Establishing that property is a central research problem rather than an assumed result.
 
-## Relationship to ACC
+## Cryptographic layers
 
-An ACC system may preserve sensitive state: intentions, active goals, relationships, unresolved questions, and a history of attention. That state cannot be treated as ordinary cloud telemetry. H-BFT is one attempt to define infrastructure that respects the sensitivity of the cognitive layer.
+Each Root Seed remains inside a hardware enclave and derives domain-separated keys for individual services. An authentication secret and a data-encryption key can be generated for one domain without exposing the seed or creating an obvious link to credentials used elsewhere.
 
-The work remains a specification draft and should not be treated as production security guidance.
+A zero-knowledge proof of personhood (ZKPoP) is generated during a session handshake. After verification, ordinary symmetric encryption carries the data plane so that proof generation does not occur for every packet.
+
+The proposal separates three broad functions:
+
+- **Human identity layer:** 1uf creation and periodic re-attestation of independent Root Seeds.
+- **Routing and control layer:** zero-knowledge handshakes, human-verified nodes, and Byzantine consensus for network state rather than packet contents.
+- **Storage and access layer:** client-encrypted shards, threshold policies, and service providers that store ciphertext without holding decryption keys.
+
+## Directory, storage, and recovery
+
+A Decentralized Directory Ledger (DDL) stores cryptographic file identifiers, commitments to access policies, and blinded shard maps. Public participants can coordinate directory state without learning human-readable filenames, ownership, or shard locations.
+
+High-value seeds may use Shamir secret sharing for threshold recovery across trusted guardians or secondary devices. Lower-value seeds can remain disposable. This allows identity to be partitioned rather than concentrated into one permanent universal credential.
+
+## Scope of the proposal
+
+The whitepaper also explores mixnet routing, metadata normalization, trusted execution environments for outsourced computation, and an asynchronous control plane using validator subcommittees. These are proposed components, not independently validated implementations.
+
+H-BFT should currently be read as a research program and threat-modeling exercise. Its human-attestation assumption, privacy guarantees, hardware trust, consensus performance, accessibility, economic incentives, and legal claims all require formal analysis and empirical validation before the architecture could support production security decisions.

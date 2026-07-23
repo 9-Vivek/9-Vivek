@@ -32,9 +32,9 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
       <div class="mt-10 border-t border-line">
         {[
           ['01', 'Framework', 'ACC formalizes the shift from artifact-centric software toward systems organized around active context.', 'research/acc/'],
-          ['02', 'Infrastructure', 'H-BFT explores private, sovereign coordination for the data and state these systems depend on.', 'research/h-bft/'],
-          ['03', 'Interfaces', 'Digital Center, Explorer Engine, and PIL test contextual spaces, projections, and personal intelligence.', 'projects/'],
-          ['04', 'Applied work', 'Semantic Workspace and the AI Systems Institute translate the research into focused tools and programs.', 'commercial/'],
+          ['02', 'Infrastructure', 'H-BFT explores human-bounded node authority, unlinkable credentials, and client-encrypted network infrastructure.', 'research/h-bft/'],
+          ['03', 'Systems', 'Digital Center, PIL, and Explorer Engine test capture-and-return workflows, derived understanding, and reusable semantic views.', 'projects/'],
+          ['04', 'Applied work', 'Semantic Workspace and the AI Systems Institute turn the systems ideas into developer tooling and artifact-based education.', 'commercial/'],
         ].map(([number, title, text, href]) => (
           <a href={`${base}${href}`} class="group grid gap-3 border-b border-line py-6 no-underline sm:grid-cols-[45px_125px_1fr_auto] sm:items-start">
             <span class="font-mono text-[10px] text-dim">{number}</span><strong class="text-sm font-medium text-ink">{title}</strong><span class="text-sm leading-6 text-muted">{text}</span><span class="text-signal transition-transform group-hover:translate-x-1">→</span>

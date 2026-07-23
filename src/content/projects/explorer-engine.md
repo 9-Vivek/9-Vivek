@@ -1,22 +1,30 @@
 ---
 title: Explorer Engine
-description: A lightweight projection engine that turns graph-indexed data into context-aware visual views called Lenses.
+description: A deterministic engine for querying structured entities and rendering the same result set through interchangeable visual representations.
 publishDate: 2026-02-06
-tags: [Graphs, Projection, Python]
-summary: Separate stored knowledge from the views used to understand it.
+tags: [Queries, Rendering, Architecture]
+summary: A semantic exploration layer that separates storage, schema, query logic, and presentation.
 featured: false
-status: In development
-category: Infrastructure / Projection
+status: Specification
+category: Exploration infrastructure
 ---
 
-Explorer Engine converts graph-indexed source data into temporary, task-specific visual projections called Lenses. The engine is deliberately presentation-agnostic: it determines what belongs in a view and why, leaving rendering to the consuming interface.
+Explorer Engine is a generic software engine for exploring structured collections through reusable queries and interchangeable renderers. It sits above existing storage rather than trying to become another database.
 
-## Why projections
+The core premise is separation: storage should not dictate understanding, a schema should not dictate presentation, and a presentation should not dictate storage.
 
-A single canonical interface cannot express every useful relationship in a complex knowledge system. A debugging task, literature review, and project handoff each require different boundaries—even when they draw from the same material.
+## Core pipeline
 
-Lenses make those boundaries explicit and disposable. They can be saved, compared, and regenerated without copying or restructuring the source data.
+Everything begins as an **Entity** defined by a **Schema** and grouped into a **Collection**. A structured **Query** filters, sorts, groups, limits, or aggregates a collection. The engine returns a presentation-free **Result Set**, which is then combined with a **Rendering Specification** and passed to a renderer such as a table, card grid, timeline, tree, or leaderboard.
 
-## Relationship to ACC
+Because result data and presentation instructions remain independent, the same query can support several useful views without changing the underlying collection.
 
-Explorer Engine provides one possible mechanism for translating active context into interface state. Its central research question is whether projection rules can remain understandable as the underlying graph and the user's working context both evolve.
+## Deterministic core
+
+The engine itself contains no AI. Given the same query and data, it should return the same result set. It does not need to understand whether an entity represents a book, achievement, file, project, or game level; that meaning belongs to the schema.
+
+An optional model may translate natural language into a structured query or propose a rendering specification. It never receives direct storage access, and the engine never relies on natural-language interpretation for execution.
+
+## Success condition
+
+The intended test is architectural: introducing a new domain should require little more than a schema definition and seed data. Query execution and renderer components should continue to work unchanged.
