@@ -1,0 +1,389 @@
+{
+  "id": "semantic-workspace-business-roadmap",
+  "title": "Semantic Workspace: Open-Core Product",
+  "shortName": "SemSpace",
+  "icon": "Layers",
+  "color": "text-purple-500",
+  "bgColor": "bg-purple-500",
+  "formatReference": "Roadmap JSON structure based on the attached format guide. ",
+  "modules": [
+    {
+      "id": "semantic-workspace-business-roadmap-m1",
+      "title": "Milestone 1: Define the Core Semantic Layer",
+      "topics": [
+        {
+          "id": "semantic-workspace-business-roadmap-m1-t1",
+          "title": "Product Thesis",
+          "explanation": "Clarify the central idea: codebases should not be navigated only through folder paths. The product adds a semantic layer above files so developers and AI agents can understand files by purpose, feature, layer, ownership, and relationships.",
+          "terms": "Semantic Layer, Metadata, File Path, Codebase Context, Developer Workflow.",
+          "task": "Write a one-page product thesis explaining why folder trees are insufficient and what a semantic workspace changes.",
+          "completed": true,
+          "note": "semantic_workspace_overview"
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m1-t2",
+          "title": "Metadata Schema v0",
+          "explanation": "The first real artifact should be a small, typed schema for describing files. Avoid loose tag chaos by defining clear fields like feature, layer, purpose, runtime, owner, related files, and agent notes.",
+          "terms": "Schema, Typed Fields, YAML, JSON, Metadata Design.",
+          "task": "Create a draft schema file with 8–12 fields and annotate several files from a real project manually.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m1-t3",
+          "title": "Local Storage Format",
+          "explanation": "The semantic layer should live inside the repository in a transparent, Git-friendly format. This makes the system inspectable, diffable, reviewable, and usable without trusting a cloud service.",
+          "terms": "Local-First, Git-Friendly, Repository Metadata, Open Format.",
+          "task": "Design a `.semantic-workspace/` folder structure containing schema, file metadata, saved views, and context exports.",
+          "completed": true,
+          "note": "reference the plugin structure in the impl chat"
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m1-t4",
+          "title": "Manual Annotation Workflow",
+          "explanation": "The first version does not need AI-generated metadata. Manual annotation is acceptable because it forces developers to make architectural intent explicit and reveals which metadata fields are actually useful.",
+          "terms": "Annotation, Human-in-the-Loop, Architectural Intent, Developer UX.",
+          "task": "Build a simple CLI or script that lets a developer add or edit metadata for a selected file.",
+          "completed": false,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "semantic-workspace-business-roadmap-m2",
+      "title": "Milestone 2: Build the Local Developer MVP",
+      "topics": [
+        {
+          "id": "semantic-workspace-business-roadmap-m2-t1",
+          "title": "VS Code Extension MVP",
+          "explanation": "The first user-facing product should meet developers where they already work. A VS Code extension can show semantic metadata, allow editing, and present alternative views without requiring a new IDE.",
+          "terms": "VS Code Extension, IDE Plugin, Sidebar View, Developer Tooling.",
+          "task": "Create a VS Code extension that reads `.semantic-workspace/files.yaml` and displays files grouped by feature and layer.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m2-t2",
+          "title": "Semantic Explorer",
+          "explanation": "The core UI should not merely display metadata; it should make the codebase navigable by meaning. Developers should be able to switch between feature view, layer view, ownership view, and task-focused view.",
+          "terms": "Semantic Explorer, Projection, Virtual View, Navigation Model.",
+          "task": "Implement at least three saved projections: by feature, by layer, and by owner.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m2-t3",
+          "title": "Saved Views",
+          "explanation": "Saved views are one of the first major differentiators from search tools. They turn temporary queries into durable artifacts that teams can share, review, and use as architectural maps.",
+          "terms": "Saved View, Query, Projection, Architecture Map.",
+          "task": "Add a `views.yaml` format that defines filters, grouping rules, and display names for reusable semantic views.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m2-t4",
+          "title": "Agent Context Export",
+          "explanation": "The early AI value comes from exporting structured context for coding agents. Instead of dumping raw files into an AI tool, the system should provide a concise, human-readable map of relevant files, purposes, relationships, and risks.",
+          "terms": "Context Bundle, AI Coding Agent, Claude Code, Cursor, Prompt Context.",
+          "task": "Create a command that exports a Markdown context bundle for a selected feature or saved view.",
+          "completed": false,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "semantic-workspace-business-roadmap-m3",
+      "title": "Milestone 3: Validate Real Developer Value",
+      "topics": [
+        {
+          "id": "semantic-workspace-business-roadmap-m3-t1",
+          "title": "Dogfood on Real Repositories",
+          "explanation": "The product needs to prove that semantic views are better than folder navigation in real projects. Testing on toy repos is useful for development, but validation requires messy, inconsistent, medium-sized codebases.",
+          "terms": "Dogfooding, Validation, Repository Complexity, Developer Feedback.",
+          "task": "Use the tool on 3 real repositories and document where semantic navigation helped or failed.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m3-t2",
+          "title": "Measure AI Context Quality",
+          "explanation": "The product’s strongest business wedge is improving AI coding agents. To validate this, compare agent performance using normal file context versus semantic context bundles.",
+          "terms": "Context Quality, Agent Evaluation, Retrieval, Task Success Rate.",
+          "task": "Run 10 coding-agent tasks with and without semantic context bundles, then record accuracy, time, and wrong-file edits.",
+          "completed": false,
+          "note": "may be difficult to find applications where AI blatantly messes up. efficiency proof via tokens is also viable"
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m3-t3",
+          "title": "Developer Workflow Interviews",
+          "explanation": "The product will only work if developers actually want to maintain the metadata. Interviews should focus on pain points: onboarding, architecture confusion, finding relevant files, PR review, and AI-agent mistakes.",
+          "terms": "User Research, Developer Productivity, Onboarding, Pain Point.",
+          "task": "Interview 8–12 developers who work in large repos and ask where folder navigation breaks down.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m3-t4",
+          "title": "MVP Success Criteria",
+          "explanation": "Define what must be true before investing heavily in the business layer. Good signs include repeated use, willingness to annotate files, better AI outputs, and developers creating saved views without being forced.",
+          "terms": "Success Metric, Activation, Retention, Product-Market Signal.",
+          "task": "Write a validation scorecard with 5 quantitative metrics and 5 qualitative signals.",
+          "completed": false,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "semantic-workspace-business-roadmap-m4",
+      "title": "Milestone 4: Launch the Open-Source Project",
+      "topics": [
+        {
+          "id": "semantic-workspace-business-roadmap-m4-t1",
+          "title": "Open-Core Positioning",
+          "explanation": "The open-source project should establish trust and adoption, while leaving room for paid team features later. The free layer should include the schema, local extension, CLI, saved views, and context export.",
+          "terms": "Open-Core, Open Source, Commercialization, Developer Trust.",
+          "task": "Write the README positioning the project as an open semantic layer for codebases, not another AI coding assistant.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m4-t2",
+          "title": "Public Schema Standard",
+          "explanation": "The schema may become more valuable than the first implementation. If other tools can read the same semantic metadata, the project can become infrastructure rather than just an extension.",
+          "terms": "Standard, Interoperability, Schema Versioning, Ecosystem.",
+          "task": "Publish `semantic-workspace.schema.json` with documentation and examples for common project types.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m4-t3",
+          "title": "CLI Tooling",
+          "explanation": "A CLI makes the project useful outside one editor. It also supports automation, CI checks, context export, and future integration with agent workflows.",
+          "terms": "CLI, Automation, CI, Developer Workflow.",
+          "task": "Build a CLI with commands for validating metadata, listing views, and exporting context bundles.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m4-t4",
+          "title": "Community Examples",
+          "explanation": "Developers understand tools faster through examples than abstract explanations. Sample annotated repos can show how semantic metadata helps with frontend apps, backend services, monorepos, and libraries.",
+          "terms": "Example Repo, Documentation, Adoption, Developer Education.",
+          "task": "Create 3 example repositories showing different semantic workspace setups.",
+          "completed": false,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "semantic-workspace-business-roadmap-m5",
+      "title": "Milestone 5: Add AI-Assisted Metadata and Context",
+      "topics": [
+        {
+          "id": "semantic-workspace-business-roadmap-m5-t1",
+          "title": "Metadata Suggestions",
+          "explanation": "After manual workflows are validated, AI can reduce the cost of maintaining metadata. The important design principle is that AI suggests metadata, while humans can review and correct it.",
+          "terms": "AI Suggestion, Human Review, Metadata Inference, Trust.",
+          "task": "Build a prototype that suggests feature, layer, purpose, and related files for changed files in a repo.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m5-t2",
+          "title": "Relationship Inference",
+          "explanation": "The product becomes much more powerful when it understands relationships, not just labels. Imports, test references, route connections, and symbol usage can help infer useful links between files.",
+          "terms": "Code Graph, Dependency Edge, Test Link, Symbol Reference.",
+          "task": "Add basic relationship detection for imports, test files, and files that commonly change together.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m5-t3",
+          "title": "Task-Aware Context Bundles",
+          "explanation": "Instead of exporting context only from a saved view, the system should generate context based on a task description. This makes the product directly useful inside AI coding workflows.",
+          "terms": "Task Context, Context Retrieval, Agent Planning, Prompt Bundle.",
+          "task": "Create a flow where the user enters a task and the tool recommends relevant files, metadata, risks, and tests.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m5-t4",
+          "title": "Agent Integration Hooks",
+          "explanation": "The product should not try to replace Claude Code, Cursor, Copilot, or Codex-style tools. It should become the context provider that makes those tools more accurate.",
+          "terms": "Claude Code, Cursor, Copilot, Agent Integration, Context Provider.",
+          "task": "Add one-click export or command integration for at least two coding-agent environments.",
+          "completed": false,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "semantic-workspace-business-roadmap-m6",
+      "title": "Milestone 6: Build Team and Collaboration Features",
+      "topics": [
+        {
+          "id": "semantic-workspace-business-roadmap-m6-t1",
+          "title": "Shared Team Views",
+          "explanation": "Teams need a common understanding of the codebase. Shared views turn semantic organization into a collaborative artifact that can support onboarding, planning, reviews, and architecture discussions.",
+          "terms": "Shared View, Team Workflow, Collaboration, Architecture Map.",
+          "task": "Build support for team-approved views stored in the repo and surfaced prominently in the IDE.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m6-t2",
+          "title": "Ownership Mapping",
+          "explanation": "Ownership is one of the most valuable forms of metadata in larger organizations. Connecting files to teams or individuals can improve review routing, onboarding, and AI safety.",
+          "terms": "Code Ownership, Review Routing, Team Metadata, Responsibility.",
+          "task": "Add owner fields and generate an ownership view for a medium-sized repository.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m6-t3",
+          "title": "PR Semantic Summaries",
+          "explanation": "A pull request should be summarized by what systems it changes, not just by which files changed. Semantic PR summaries can explain affected features, layers, owners, tests, and risks.",
+          "terms": "Pull Request, Semantic Diff, Risk Summary, Code Review.",
+          "task": "Build a prototype that takes a Git diff and outputs a semantic change summary using metadata.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m6-t4",
+          "title": "Architecture Drift Detection",
+          "explanation": "Once expected metadata exists, the tool can detect when files no longer fit the intended architecture. This turns the semantic layer from documentation into a lightweight governance system.",
+          "terms": "Architecture Drift, Governance, Consistency Check, Code Health.",
+          "task": "Create a validation rule that flags files missing metadata or files whose location conflicts with their semantic fields.",
+          "completed": false,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "semantic-workspace-business-roadmap-m7",
+      "title": "Milestone 7: Commercialize the Team Product",
+      "topics": [
+        {
+          "id": "semantic-workspace-business-roadmap-m7-t1",
+          "title": "Paid Product Boundary",
+          "explanation": "The paid product should not charge for the basic local schema. It should charge for team workflows, collaboration, managed AI features, dashboards, integrations, and enterprise controls.",
+          "terms": "Open-Core Boundary, SaaS, Team Plan, Monetization.",
+          "task": "Define exactly what remains free and what belongs in the paid team plan.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m7-t2",
+          "title": "Team Dashboard",
+          "explanation": "A web dashboard can show repo health, semantic coverage, important systems, stale metadata, ownership gaps, and AI context quality. This turns the product from an IDE utility into a team management tool.",
+          "terms": "Dashboard, Semantic Coverage, Repo Health, Team Visibility.",
+          "task": "Design a dashboard mockup showing coverage, owners, top features, missing tests, and metadata drift.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m7-t3",
+          "title": "Enterprise Integrations",
+          "explanation": "Companies will pay when the product fits their existing stack. Useful integrations include GitHub, GitLab, Jira, Linear, Slack, Teams, Sourcegraph, Cursor, Claude Code, and internal documentation systems.",
+          "terms": "Integration, GitHub, Jira, Linear, Slack, Enterprise Workflow.",
+          "task": "Prioritize 5 integrations by buyer value and implementation difficulty.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m7-t4",
+          "title": "Pricing Strategy",
+          "explanation": "The pricing should map to team value, not individual usage alone. Likely pricing tiers include free local use, pro individual use, team collaboration, and enterprise self-hosted or security-focused plans.",
+          "terms": "Pricing, Team Plan, Enterprise Plan, Seat-Based Pricing, Usage-Based Pricing.",
+          "task": "Draft a pricing page with Free, Pro, Team, and Enterprise tiers.",
+          "completed": false,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "semantic-workspace-business-roadmap-m8",
+      "title": "Milestone 8: Expand Into Developer Infrastructure",
+      "topics": [
+        {
+          "id": "semantic-workspace-business-roadmap-m8-t1",
+          "title": "Cross-Repo Semantic Graph",
+          "explanation": "Large organizations rarely have only one repo. The product becomes more valuable when it can map services, shared libraries, ownership, dependencies, and AI context across multiple repositories.",
+          "terms": "Monorepo, Multi-Repo, Service Graph, Dependency Graph.",
+          "task": "Prototype an organization-level view that shows how features or services span multiple repositories.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m8-t2",
+          "title": "Onboarding Maps",
+          "explanation": "New engineers need guided paths through complex systems. Semantic metadata can generate onboarding maps organized by feature, layer, concepts, owners, and recommended reading order.",
+          "terms": "Onboarding, Learning Path, System Map, Knowledge Transfer.",
+          "task": "Generate an onboarding path for one feature that includes files, summaries, tests, owners, and background docs.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m8-t3",
+          "title": "AI Coding Governance",
+          "explanation": "As companies adopt AI coding agents, they will need ways to control context, risk, ownership, and review expectations. The semantic layer can become the policy surface for safe agent use.",
+          "terms": "AI Governance, Policy, Risk Area, Safe Automation, Review Control.",
+          "task": "Design rules that tell agents which files are sensitive, which tests must run, and which owners should review changes.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m8-t4",
+          "title": "Platform Positioning",
+          "explanation": "At maturity, the product is no longer just a plugin. It becomes infrastructure that helps humans and agents understand, navigate, and safely modify large software systems.",
+          "terms": "Developer Infrastructure, Platform, Semantic Context Layer, Enterprise DevTools.",
+          "task": "Write the enterprise positioning statement for the product as context infrastructure for AI-assisted software teams.",
+          "completed": false,
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "semantic-workspace-business-roadmap-m9",
+      "title": "Milestone 9: Explore Beyond Code",
+      "topics": [
+        {
+          "id": "semantic-workspace-business-roadmap-m9-t1",
+          "title": "General Semantic File Layer",
+          "explanation": "The deeper idea is not limited to code. Many fields suffer because files are stored in folders even though their meaning overlaps across projects, clients, topics, risks, and workflows.",
+          "terms": "Semantic File Layer, Knowledge Work, Metadata, Multi-Axial Organization.",
+          "task": "Write a general-purpose version of the product thesis for non-code files.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m9-t2",
+          "title": "Enterprise Knowledge Use Cases",
+          "explanation": "In companies, documents often live in SharePoint, Drive, Slack, and email without a coherent semantic structure. A semantic layer could organize work by initiative, owner, decision, dependency, and status.",
+          "terms": "Enterprise Knowledge, SharePoint, Drive, Decision Log, Initiative Map.",
+          "task": "Map how the metadata model would apply to product specs, meeting notes, design docs, and decision records.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m9-t3",
+          "title": "Research and Legal Domains",
+          "explanation": "Research papers and legal documents are strong candidates because their meaning rarely fits a single folder path. They need views by claim, method, jurisdiction, clause, obligation, dataset, or citation.",
+          "terms": "Legal Tech, Research Management, Clause, Citation Graph, Document Intelligence.",
+          "task": "Create two alternative schemas: one for legal contracts and one for research-paper libraries.",
+          "completed": false,
+          "note": ""
+        },
+        {
+          "id": "semantic-workspace-business-roadmap-m9-t4",
+          "title": "Expansion Decision",
+          "explanation": "The company should expand beyond code only after winning a clear wedge in developer tooling. Generalizing too early risks weakening the product before the core business is proven.",
+          "terms": "Market Expansion, Wedge, Focus, Product Strategy.",
+          "task": "Define the criteria that must be met before expanding from code into broader semantic file organization.",
+          "completed": false,
+          "note": ""
+        }
+      ]
+    }
+  ]
+}
