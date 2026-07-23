@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "Cascadia Code", Consolas, monospace;
+  --color-ink: #e8e5de;
+  --color-muted: #9b9a95;
+  --color-dim: #6f706d;
+  --color-canvas: #0d0f0f;
+  --color-panel: #131616;
+  --color-line: #292d2c;
+  --color-signal: #d6a756;
+}
+
+@layer base {
+  html { color-scheme: dark; scroll-behavior: smooth; }
+  body {
+    @apply m-0 bg-canvas text-ink font-sans antialiased;
+    background-image: radial-gradient(circle at 75% 0%, rgba(214,167,86,.055), transparent 30rem);
+  }
+  ::selection { background: rgba(214,167,86,.28); color: #fff; }
+  a { @apply underline-offset-4; }
+  :focus-visible { @apply outline-2 outline-offset-4 outline-signal; }
+}
+
+@layer components {
+  .shell { @apply mx-auto w-full max-w-[1180px] px-5 sm:px-8; }
+  .eyebrow { @apply font-mono text-[11px] uppercase tracking-[.18em] text-signal; }
+  .rule { @apply border-t border-line; }
+  .tag { @apply rounded-full border border-line px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-muted; }
+  .arrow-link { @apply inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink no-underline transition-colors hover:text-signal; }
+  .arrow-link::after { content: '↗'; @apply text-signal; }
+  .prose-doc { @apply max-w-[720px] text-[1.02rem] leading-8 text-[#c5c3bd]; }
+  .prose-doc h2 { @apply mt-14 mb-5 text-2xl font-medium tracking-tight text-ink; }
+  .prose-doc h3 { @apply mt-10 mb-4 text-lg font-medium text-ink; }
+  .prose-doc p { @apply my-5; }
+  .prose-doc ul { @apply my-6 list-disc space-y-2 pl-5 marker:text-signal; }
+  .prose-doc blockquote { @apply my-8 border-l-2 border-signal pl-5 text-lg italic text-ink; }
+  .prose-doc code { @apply rounded bg-panel px-1.5 py-0.5 font-mono text-sm text-signal; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

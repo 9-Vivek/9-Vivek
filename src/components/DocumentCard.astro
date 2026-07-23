@@ -1,0 +1,14 @@
+---
+interface Props { title: string; description: string; href: string; tags: string[]; index?: string; label?: string; }
+const { title, description, href, tags, index = '01', label = 'Document' } = Astro.props;
+---
+<article class="group relative grid gap-5 border-t border-line py-8 transition-colors hover:border-[#555750] sm:grid-cols-[64px_1fr_auto] sm:items-start">
+  <span class="font-mono text-[11px] text-dim">{index}</span>
+  <div>
+    <p class="eyebrow">{label}</p>
+    <h2 class="mt-2 text-xl font-medium tracking-tight"><a href={href} class="no-underline after:absolute after:inset-0">{title}</a></h2>
+    <p class="mt-3 max-w-2xl text-sm leading-6 text-muted">{description}</p>
+    <div class="mt-4 flex flex-wrap gap-2">{tags.map(tag => <span class="tag">{tag}</span>)}</div>
+  </div>
+  <span aria-hidden="true" class="hidden text-signal transition-transform group-hover:translate-x-1 sm:block">→</span>
+</article>

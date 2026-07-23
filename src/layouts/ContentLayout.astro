@@ -1,0 +1,24 @@
+---
+import BaseLayout from './BaseLayout.astro';
+interface Props {
+  title: string; description: string; publishDate: Date; tags: string[]; category?: string; status?: string;
+}
+const { title, description, publishDate, tags, category = 'Document', status } = Astro.props;
+---
+<BaseLayout title={`${title} — Vivek`} description={description}>
+  <article class="shell py-16 sm:py-24">
+    <header class="grid gap-10 border-b border-line pb-12 lg:grid-cols-[1fr_260px]">
+      <div>
+        <p class="eyebrow">{category}</p>
+        <h1 class="mt-5 max-w-4xl text-4xl font-medium leading-[1.05] tracking-[-.035em] sm:text-6xl">{title}</h1>
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-muted">{description}</p>
+      </div>
+      <dl class="grid content-end gap-5 border-l border-line pl-5 font-mono text-[11px] uppercase tracking-wider">
+        <div><dt class="text-dim">Published</dt><dd class="mt-1 text-muted">{publishDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</dd></div>
+        {status && <div><dt class="text-dim">Status</dt><dd class="mt-1 text-signal">{status}</dd></div>}
+        <div><dt class="text-dim">Topics</dt><dd class="mt-2 flex flex-wrap gap-2">{tags.map(tag => <span class="tag">{tag}</span>)}</dd></div>
+      </dl>
+    </header>
+    <div class="prose-doc pt-12"><slot /></div>
+  </article>
+</BaseLayout>

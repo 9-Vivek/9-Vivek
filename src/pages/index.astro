@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DocumentCard from '../components/DocumentCard.astro';
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const projects = (await getCollection('projects')).sort((a,b) => Number(b.data.featured) - Number(a.data.featured));
+---
+<BaseLayout>
+  <section class="shell py-20 sm:py-32">
+    <div class="grid gap-12 lg:grid-cols-[1fr_270px] lg:gap-20">
+      <div>
+        <p class="eyebrow">Software developer · CS / AI student</p>
+        <h1 class="mt-7 max-w-4xl text-5xl font-medium leading-[.98] tracking-[-.045em] sm:text-7xl lg:text-[5.35rem]">Software for thought,<br/><span class="text-muted">built close to the user.</span></h1>
+        <p class="mt-9 max-w-2xl text-lg leading-8 text-muted">I design high-bandwidth software for active human cognition, local-first environments, and sovereign data systems.</p>
+      </div>
+      <aside class="self-end border-l border-line pl-5">
+        <p class="font-mono text-[10px] uppercase tracking-[.16em] text-dim">Current inquiry / 01</p>
+        <p class="mt-4 text-sm leading-6 text-muted">What changes when software maintains a working model of intent—not just a hierarchy of artifacts?</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="border-y border-line bg-panel/40">
+    <div class="shell grid lg:grid-cols-[.72fr_1.28fr]">
+      <div class="border-b border-line py-10 lg:border-b-0 lg:border-r lg:py-16 lg:pr-12">
+        <p class="eyebrow">North star / Research</p>
+        <p class="mt-5 font-mono text-xs leading-6 text-dim">ACC—001<br/>Working framework<br/>2026</p>
+      </div>
+      <div class="py-10 lg:py-16 lg:pl-14">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Active Cognition Computing</h2>
+        <p class="mt-6 max-w-2xl text-base leading-7 text-muted">A theoretical framework for moving beyond artifact-centric software. ACC asks systems to preserve dynamic context and cognitive state—helping people resume, connect, and extend thought without surrendering agency.</p>
+        <div class="mt-8 flex flex-wrap gap-6">
+          <a href={`${base}research/acc/`} class="arrow-link">Read the framework</a>
+          <a href={`${base}research/whitepaper/`} class="arrow-link text-muted">Whitepaper preview</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell py-20 sm:py-28">
+    <div class="mb-12 flex items-end justify-between gap-6">
+      <div><p class="eyebrow">The proof / Engineering</p><h2 class="mt-4 text-3xl font-medium tracking-tight">Working systems & specifications</h2></div>
+      <a href={`${base}projects/`} class="arrow-link hidden sm:inline-flex">All projects</a>
+    </div>
+    <div class="relative">
+      {projects.map((project, i) => <DocumentCard title={project.data.title} description={project.data.description} href={`${base}projects/${project.id}/`} tags={project.data.tags} index={String(i + 1).padStart(2, '0')} label={project.data.category} />)}
+    </div>
+  </section>
+
+  <section class="shell">
+    <div class="grid gap-10 border-t border-line py-16 lg:grid-cols-[1fr_2fr]">
+      <div><p class="eyebrow">Capabilities</p><h2 class="mt-4 text-2xl font-medium">Theory into systems.</h2></div>
+      <div class="grid gap-x-8 gap-y-3 sm:grid-cols-2 font-mono text-xs text-muted">
+        {['Tauri + React','TypeScript + Vite','Python','Local LLMs / Ollama','Systems design','Distributed systems','Local-first architecture','Human–computer interaction'].map((skill, i) => <div class="flex justify-between border-b border-line py-3"><span>{skill}</span><span class="text-dim">{String(i+1).padStart(2,'0')}</span></div>)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
