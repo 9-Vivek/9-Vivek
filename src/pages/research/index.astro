@@ -6,6 +6,6 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 const docs = (await getCollection('research')).sort((a,b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
 <BaseLayout title="Research — Vivek" description="Research into Active Cognition Computing and cognitive-centric software.">
-  <header class="shell py-14 sm:py-20"><p class="eyebrow">Research index</p><div class="mt-5 max-w-2xl"><h1 class="text-4xl font-medium tracking-[-.035em] sm:text-5xl">Frameworks and infrastructure.</h1><p class="mt-6 text-base leading-8 text-muted">Formal work on Active Cognition Computing and the sovereign systems needed to support it. Both documents are in active development.</p></div></header>
+  <header class="shell py-14 sm:py-20"><p class="eyebrow">Research Index</p><div class="mt-5 max-w-2xl"><h1 class="text-4xl font-medium tracking-[-.035em] sm:text-5xl">Research</h1><p class="mt-6 text-base leading-8 text-muted">Formal work on Active Cognition Computing and the sovereign systems needed to support it. Both documents are in active development.</p></div></header>
   <section class="shell pb-16">{docs.map((doc, i) => <DocumentCard title={doc.data.title} description={doc.data.description} href={`${base}research/${doc.id}/`} tags={doc.data.tags} index={String(i+1).padStart(2,'0')} label={doc.data.category} />)}</section>
 </BaseLayout>

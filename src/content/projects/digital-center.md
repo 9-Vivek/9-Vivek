@@ -42,3 +42,7 @@ This reflects a broader design rule: AI may process and derive information, but 
 Canonical data remains local and feature-owned. Enrichment, embeddings, summaries, and search indexes are treated as derived, rebuildable data. External connections are optional and lightweight; they surface signal or produce validated import packages rather than turning Digital Center into a replica of every outside platform.
 
 The long-term objective is a personal operating layer that makes digital work easier to capture, search, connect, and resume - while remaining fast, legible, and owned by the user.
+
+## Big-picture position
+
+Digital Center is the primary integration laboratory for the ACC direction. It is where the research becomes a concrete desktop system: independent modules, shared object contracts, contextual organization, and explicit AI context control all have to work together in one usable environment. Within the broader portfolio, it demonstrates end-to-end product architecture and local-first application engineering rather than a single isolated feature.

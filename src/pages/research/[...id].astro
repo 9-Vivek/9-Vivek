@@ -5,4 +5,4 @@ export async function getStaticPaths() { return (await getCollection('research')
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
-<ContentLayout {...entry.data} whitepaperHref="#whitepaper"><Content /></ContentLayout>
+<ContentLayout {...entry.data} featureLink={{ label: 'Whitepaper', text: 'Technical paper forthcoming', href: '#whitepaper', id: 'whitepaper' }}><Content /></ContentLayout>

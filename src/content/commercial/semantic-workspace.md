@@ -30,3 +30,7 @@ It can also export concise context bundles for AI coding tools. Instead of sendi
 The schema, local storage format, extension, CLI, saved views, and context export are intended to remain open. Potential paid value sits around team collaboration, semantic pull-request summaries, ownership maps, architecture-drift detection, managed integrations, and organization-level context across multiple repositories.
 
 AI-assisted annotation comes later. Models may suggest metadata, infer relationships, or assemble task-aware context, but human review remains part of the control boundary.
+
+## Big-picture position
+
+Semantic Workspace is the clearest developer-facing application of the ACC thesis. It applies context-centered organization to a bounded professional problem: helping developers and coding agents understand a repository by intent rather than path alone. Within the portfolio, it connects the research to an open-core product strategy and a concrete market for interoperable, human-governed AI context.

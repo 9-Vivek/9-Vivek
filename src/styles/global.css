@@ -44,6 +44,12 @@
   .tag { @apply rounded-full border border-line px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-muted; }
   .arrow-link { @apply inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink no-underline transition-colors hover:text-signal; }
   .arrow-link::after { content: '↗'; @apply text-signal; }
+  .prominent-link {
+    border: 1px solid rgba(214, 167, 86, .72);
+    box-shadow: 0 0 0 1px rgba(214, 167, 86, .12), 0 0 22px rgba(214, 167, 86, .14);
+    transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+  }
+  .prominent-link:hover { border-color: #e9bd70; box-shadow: 0 0 0 1px rgba(214, 167, 86, .22), 0 0 30px rgba(214, 167, 86, .24); }
   .prose-doc { @apply max-w-[720px] text-[1.02rem] leading-8 text-[#c5c3bd]; }
   .prose-doc h2 { @apply mt-14 mb-5 text-2xl font-medium tracking-tight text-ink; }
   .prose-doc h3 { @apply mt-10 mb-4 text-lg font-medium text-ink; }

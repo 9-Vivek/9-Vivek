@@ -28,3 +28,7 @@ An optional model may translate natural language into a structured query or prop
 ## Success condition
 
 The intended test is architectural: introducing a new domain should require little more than a schema definition and seed data. Query execution and renderer components should continue to work unchanged.
+
+## Big-picture position
+
+Explorer Engine occupies the representation layer of the ACC ecosystem. It provides a deterministic mechanism for turning structured information into different useful views without allowing storage or presentation to become the permanent definition of that information. In the professional portfolio, it highlights reusable engine design, strict separation of concerns, and explainable behavior around optional AI components.

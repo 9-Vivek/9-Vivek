@@ -34,3 +34,7 @@ Adding a new form of reasoning should mean adding a node definition, not writing
 The first version intentionally excludes databases, embeddings, vector stores, graph databases, autonomous agents, multi-agent orchestration, and complex UI. It tests one narrower hypothesis: whether a graph of specialized reasoning passes over continuously derived state produces more useful understanding than isolated model conversations.
 
 The governing distinction is simple: PIL does not store conversations. It rebuilds understanding.
+
+## Big-picture position
+
+PIL is the reasoning branch of the larger ACC direction. Where Digital Center organizes the workspace a person interacts with, PIL investigates how raw information can be repeatedly transformed into explicit state, specialized analysis, and a current executive understanding. Within the portfolio, it demonstrates system design for stateful model workflows while keeping memory, provenance, and execution outside the model itself.

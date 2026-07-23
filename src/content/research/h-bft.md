@@ -44,3 +44,7 @@ High-value seeds may use Shamir secret sharing for threshold recovery across tru
 The whitepaper also explores mixnet routing, metadata normalization, trusted execution environments for outsourced computation, and an asynchronous control plane using validator subcommittees. These are proposed components, not independently validated implementations.
 
 H-BFT should currently be read as a research program and threat-modeling exercise. Its human-attestation assumption, privacy guarantees, hardware trust, consensus performance, accessibility, economic incentives, and legal claims all require formal analysis and empirical validation before the architecture could support production security decisions.
+
+## Big-picture position
+
+H-BFT is the most speculative infrastructure branch of the ACC direction. It asks what identity, routing, storage, and recovery would need to look like if sensitive cognitive state were treated as sovereign data rather than ordinary platform telemetry. Within the professional portfolio, it broadens the work from interface and application architecture into cryptographic threat modeling, distributed consensus, and the disciplined evaluation of ambitious systems claims.

@@ -4,5 +4,8 @@ import ContentLayout from '../../layouts/ContentLayout.astro';
 export async function getStaticPaths() { return (await getCollection('commercial')).map(entry => ({ params: { id: entry.id }, props: { entry } })); }
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const featureLink = entry.id === 'semantic-workspace'
+  ? { label: 'VS Code extension', text: 'Marketplace link forthcoming', href: '#extension', id: 'extension' }
+  : { label: 'Website', text: 'AI Systems Institute site forthcoming', href: '#website', id: 'website' };
 ---
-<ContentLayout {...entry.data}><Content /></ContentLayout>
+<ContentLayout {...entry.data} featureLink={featureLink}><Content /></ContentLayout>
