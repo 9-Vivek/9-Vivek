@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const groups = [
+  ['Application engineering', ['Python', 'TypeScript', 'React', 'Vite', 'Tauri', 'VS Code extensions']],
+  ['AI systems', ['Local LLMs', 'Ollama', 'Retrieval and context systems', 'ML workflows', 'Human-directed automation']],
+  ['Systems', ['Local-first architecture', 'Distributed systems', 'Consensus research', 'Graph data', 'Network security']],
+  ['Design & research', ['Human–computer interaction', 'Systems design', 'Technical specifications', 'Prototyping', 'Research writing']],
+];
+---
+<BaseLayout title="Skills and Experience — Vivek Pragada" description="Technical focus across application engineering, AI systems, distributed architecture, and HCI research.">
+  <article class="shell py-14 sm:py-20">
+    <header class="max-w-2xl border-b border-line pb-12"><p class="eyebrow">Skills / Experience</p><h1 class="mt-5 text-4xl font-medium tracking-[-.035em] sm:text-5xl">Building across the stack, with architecture as the throughline.</h1><p class="mt-6 text-base leading-8 text-muted">My experience combines software implementation, systems architecture, AI tooling, and independent HCI research. The emphasis is on understanding how the layers fit together rather than treating technologies as isolated skills.</p></header>
+    <section class="py-12">
+      {groups.map(([title, skills], i) => (
+        <div class="grid gap-5 border-t border-line py-7 sm:grid-cols-[42px_190px_1fr]">
+          <span class="font-mono text-[10px] text-dim">{String(i + 1).padStart(2, '0')}</span><h2 class="text-sm font-medium">{title}</h2><div class="flex flex-wrap gap-2">{(skills as string[]).map(skill => <span class="tag">{skill}</span>)}</div>
+        </div>
+      ))}
+    </section>
+    <section class="border-t border-line pt-12"><p class="eyebrow">Working mode</p><div class="mt-6 grid gap-8 sm:grid-cols-2"><div><h2 class="text-lg font-medium">Research through implementation</h2><p class="mt-3 text-sm leading-7 text-muted">I use prototypes to make theoretical claims concrete, expose hidden assumptions, and identify where an architecture stops being useful.</p></div><div><h2 class="text-lg font-medium">Local-first by default</h2><p class="mt-3 text-sm leading-7 text-muted">I prefer designs that remain useful offline, preserve ordinary data formats, and give the user a clear path to inspect, export, or replace system behavior.</p></div></div></section>
+  </article>
+</BaseLayout>

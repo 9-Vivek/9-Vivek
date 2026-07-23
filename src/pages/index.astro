@@ -1,58 +1,55 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import DocumentCard from '../components/DocumentCard.astro';
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
-const projects = (await getCollection('projects')).sort((a,b) => Number(b.data.featured) - Number(a.data.featured));
 ---
 <BaseLayout>
-  <section class="shell py-20 sm:py-32">
-    <div class="grid gap-12 lg:grid-cols-[1fr_270px] lg:gap-20">
-      <div>
-        <p class="eyebrow">Software developer · CS / AI student</p>
-        <h1 class="mt-7 max-w-4xl text-5xl font-medium leading-[.98] tracking-[-.045em] sm:text-7xl lg:text-[5.35rem]">Software for thought,<br/><span class="text-muted">built close to the user.</span></h1>
-        <p class="mt-9 max-w-2xl text-lg leading-8 text-muted">I design high-bandwidth software for active human cognition, local-first environments, and sovereign data systems.</p>
-      </div>
-      <aside class="self-end border-l border-line pl-5">
-        <p class="font-mono text-[10px] uppercase tracking-[.16em] text-dim">Current inquiry / 01</p>
-        <p class="mt-4 text-sm leading-6 text-muted">What changes when software maintains a working model of intent—not just a hierarchy of artifacts?</p>
-      </aside>
-    </div>
-  </section>
-
-  <section class="border-y border-line bg-panel/40">
-    <div class="shell grid lg:grid-cols-[.72fr_1.28fr]">
-      <div class="border-b border-line py-10 lg:border-b-0 lg:border-r lg:py-16 lg:pr-12">
-        <p class="eyebrow">North star / Research</p>
-        <p class="mt-5 font-mono text-xs leading-6 text-dim">ACC—001<br/>Working framework<br/>2026</p>
-      </div>
-      <div class="py-10 lg:py-16 lg:pl-14">
-        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Active Cognition Computing</h2>
-        <p class="mt-6 max-w-2xl text-base leading-7 text-muted">A theoretical framework for moving beyond artifact-centric software. ACC asks systems to preserve dynamic context and cognitive state—helping people resume, connect, and extend thought without surrendering agency.</p>
-        <div class="mt-8 flex flex-wrap gap-6">
-          <a href={`${base}research/acc/`} class="arrow-link">Read the framework</a>
-          <a href={`${base}research/whitepaper/`} class="arrow-link text-muted">Whitepaper preview</a>
+  <article class="shell py-14 sm:py-20">
+    <header class="border-b border-line pb-12 sm:pb-16">
+      <p class="eyebrow">Home / Personal research profile</p>
+      <div class="mt-8 grid gap-8 sm:grid-cols-[152px_1fr] sm:items-center">
+        <div class="grid aspect-[4/5] w-[140px] place-items-center border border-line bg-panel sm:w-full" aria-label="Profile photograph placeholder">
+          <div class="text-center"><span class="block text-3xl font-light text-muted">VP</span><span class="mt-3 block font-mono text-[9px] uppercase tracking-[.18em] text-dim">Portrait</span></div>
+        </div>
+        <div>
+          <h1 class="text-4xl font-medium tracking-[-.035em] sm:text-5xl">Vivek Pragada</h1>
+          <p class="mt-3 font-mono text-xs uppercase tracking-[.13em] text-signal">Software developer · CS / AI student</p>
+          <p class="mt-6 max-w-xl text-base leading-7 text-muted">I study and build software systems that support active human cognition, preserve user control, and work close to the data they organize.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="shell py-20 sm:py-28">
-    <div class="mb-12 flex items-end justify-between gap-6">
-      <div><p class="eyebrow">The proof / Engineering</p><h2 class="mt-4 text-3xl font-medium tracking-tight">Working systems & specifications</h2></div>
-      <a href={`${base}projects/`} class="arrow-link hidden sm:inline-flex">All projects</a>
-    </div>
-    <div class="relative">
-      {projects.map((project, i) => <DocumentCard title={project.data.title} description={project.data.description} href={`${base}projects/${project.id}/`} tags={project.data.tags} index={String(i + 1).padStart(2, '0')} label={project.data.category} />)}
-    </div>
-  </section>
-
-  <section class="shell">
-    <div class="grid gap-10 border-t border-line py-16 lg:grid-cols-[1fr_2fr]">
-      <div><p class="eyebrow">Capabilities</p><h2 class="mt-4 text-2xl font-medium">Theory into systems.</h2></div>
-      <div class="grid gap-x-8 gap-y-3 sm:grid-cols-2 font-mono text-xs text-muted">
-        {['Tauri + React','TypeScript + Vite','Python','Local LLMs / Ollama','Systems design','Distributed systems','Local-first architecture','Human–computer interaction'].map((skill, i) => <div class="flex justify-between border-b border-line py-3"><span>{skill}</span><span class="text-dim">{String(i+1).padStart(2,'0')}</span></div>)}
+      <div class="mt-10 max-w-2xl text-[15px] leading-7 text-[#c5c3bd]">
+        <p>This site is a working record of that research: the theory behind Active Cognition Computing, the infrastructure it may require, and the projects used to test it in practice. It is part portfolio, part technical notebook, and part map of a larger ecosystem still taking shape.</p>
       </div>
-    </div>
-  </section>
+    </header>
+
+    <section class="py-14 sm:py-16">
+      <div class="grid gap-7 sm:grid-cols-[170px_1fr]">
+        <div><p class="eyebrow">ACC ecosystem</p><p class="mt-3 font-mono text-[10px] leading-5 text-dim">Theory → infrastructure → interfaces → applied systems</p></div>
+        <div>
+          <h2 class="text-2xl font-medium tracking-tight">A connected research and engineering program</h2>
+          <p class="mt-4 max-w-2xl text-sm leading-7 text-muted">Active Cognition Computing provides the primary direction. Each component explores a different layer of the same question: how can software retain meaningful context while remaining legible, local-first, and under the user's authority?</p>
+        </div>
+      </div>
+      <div class="mt-10 border-t border-line">
+        {[
+          ['01', 'Framework', 'ACC formalizes the shift from artifact-centric software toward systems organized around active context.', 'research/acc/'],
+          ['02', 'Infrastructure', 'H-BFT explores private, sovereign coordination for the data and state these systems depend on.', 'research/h-bft/'],
+          ['03', 'Interfaces', 'Digital Center, Explorer Engine, and PIL test contextual spaces, projections, and personal intelligence.', 'projects/'],
+          ['04', 'Applied work', 'Semantic Workspace and the AI Systems Institute translate the research into focused tools and programs.', 'commercial/'],
+        ].map(([number, title, text, href]) => (
+          <a href={`${base}${href}`} class="group grid gap-3 border-b border-line py-6 no-underline sm:grid-cols-[45px_125px_1fr_auto] sm:items-start">
+            <span class="font-mono text-[10px] text-dim">{number}</span><strong class="text-sm font-medium text-ink">{title}</strong><span class="text-sm leading-6 text-muted">{text}</span><span class="text-signal transition-transform group-hover:translate-x-1">→</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="border-t border-line pt-12">
+      <p class="eyebrow">Current direction</p>
+      <div class="mt-5 grid gap-6 sm:grid-cols-2">
+        <p class="text-sm leading-7 text-muted">The immediate work is to make ACC precise enough to evaluate: define active context, describe what a system may infer, and establish when contextual assistance becomes intrusive.</p>
+        <p class="text-sm leading-7 text-muted">The projects serve as test environments rather than finished proof. Their role is to expose architectural tradeoffs and keep the research grounded in working software.</p>
+      </div>
+      <a href={`${base}overview/`} class="arrow-link mt-8">Continue to overview</a>
+    </section>
+  </article>
 </BaseLayout>

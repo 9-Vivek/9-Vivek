@@ -2,12 +2,14 @@
 import BaseLayout from './BaseLayout.astro';
 interface Props {
   title: string; description: string; publishDate: Date; tags: string[]; category?: string; status?: string;
+  whitepaperHref?: string;
 }
-const { title, description, publishDate, tags, category = 'Document', status } = Astro.props;
+const { title, description, publishDate, tags, category = 'Document', status, whitepaperHref } = Astro.props;
 ---
 <BaseLayout title={`${title} — Vivek`} description={description}>
   <article class="shell py-16 sm:py-24">
-    <header class="grid gap-10 border-b border-line pb-12 lg:grid-cols-[1fr_260px]">
+    {whitepaperHref && <a id="whitepaper" href={whitepaperHref} class="mb-8 flex items-center justify-between border border-line bg-panel px-5 py-4 text-sm text-ink no-underline transition-colors hover:border-signal"><span><span class="eyebrow mr-4">Whitepaper</span>Technical paper forthcoming</span><span class="text-signal">↗</span></a>}
+    <header class="grid gap-10 border-b border-line pb-12 md:grid-cols-[1fr_220px]">
       <div>
         <p class="eyebrow">{category}</p>
         <h1 class="mt-5 max-w-4xl text-4xl font-medium leading-[1.05] tracking-[-.035em] sm:text-6xl">{title}</h1>

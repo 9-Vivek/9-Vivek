@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const layers = [
+  ['01', 'Direction', 'Active Cognition Computing', 'A framework for software that maintains useful, inspectable context around human intention.', 'research/acc/'],
+  ['02', 'Trust layer', 'H-BFT', 'A specification exploring sovereign, private-by-default replication and coordination.', 'research/h-bft/'],
+  ['03', 'Personal layer', 'PIL', 'A local intelligence layer that mediates context, memory, tools, and user-authored policy.', 'projects/pil/'],
+  ['04', 'Projection layer', 'Explorer Engine', 'A system for deriving task-specific Lenses from graph-indexed source data.', 'projects/explorer-engine/'],
+  ['05', 'Workspace layer', 'Digital Center', 'The primary desktop laboratory for contextual spaces and non-hierarchical organization.', 'projects/digital-center/'],
+  ['06', 'Application layer', 'Semantic Workspace', 'Intent-oriented code navigation and task mapping built over ordinary source trees.', 'commercial/semantic-workspace/'],
+];
+---
+<BaseLayout title="ACC Ecosystem Overview — Vivek Pragada" description="An overview of Active Cognition Computing and the systems that make up its research ecosystem.">
+  <article class="shell py-14 sm:py-20">
+    <header class="max-w-2xl border-b border-line pb-12">
+      <p class="eyebrow">Overview / ACC ecosystem</p>
+      <h1 class="mt-5 text-4xl font-medium tracking-[-.035em] sm:text-5xl">Active Cognition Computing as a systems direction</h1>
+      <p class="mt-6 text-base leading-8 text-muted">ACC begins with a simple observation: software stores artifacts well, but it rarely preserves the context that makes those artifacts meaningful. The ecosystem is a set of connected attempts to address that gap from theory through infrastructure and interface design.</p>
+    </header>
+    <section class="py-12">
+      <h2 class="text-2xl font-medium tracking-tight">Primary direction</h2>
+      <div class="prose-doc mt-5"><p>ACC shifts the center of software architecture from static containers toward an active, inspectable model of goals, relationships, working state, and unresolved questions. It is not a proposal for autonomous software. The aim is to make continuity easier while keeping inference subordinate to user intent.</p><p>The practical constraints are as important as the theory: context should remain understandable, core workflows should be local-first, and personal cognitive state should not depend on infrastructure the user cannot control.</p></div>
+    </section>
+    <section class="border-t border-line py-12">
+      <p class="eyebrow">System map</p>
+      <div class="mt-7">
+        {layers.map(([n, layer, title, description, href]) => (
+          <a href={`${base}${href}`} class="group grid gap-3 border-t border-line py-6 no-underline sm:grid-cols-[38px_105px_170px_1fr_auto]">
+            <span class="font-mono text-[10px] text-dim">{n}</span><span class="font-mono text-[10px] uppercase tracking-wider text-signal">{layer}</span><strong class="text-sm font-medium text-ink">{title}</strong><span class="text-sm leading-6 text-muted">{description}</span><span class="text-signal">→</span>
+          </a>
+        ))}
+      </div>
+    </section>
+    <section class="border-t border-line pt-12"><h2 class="text-2xl font-medium">How the components connect</h2><div class="prose-doc mt-5"><p>The framework defines what a cognitive-centric system should preserve. H-BFT asks how that state can remain sovereign across devices. PIL mediates local models and tools. Explorer Engine turns indexed relationships into useful views. Digital Center provides the experimental workspace, while Semantic Workspace tests the same principles in a constrained commercial setting.</p><p>The AI Systems Institute sits alongside the stack as an applied research and education effort: a place to develop methods, technical depth, and programs around human-directed AI systems.</p></div></section>
+  </article>
+</BaseLayout>

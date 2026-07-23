@@ -16,7 +16,6 @@
   html { color-scheme: dark; scroll-behavior: smooth; }
   body {
     @apply m-0 bg-canvas text-ink font-sans antialiased;
-    background-image: radial-gradient(circle at 75% 0%, rgba(214,167,86,.055), transparent 30rem);
   }
   ::selection { background: rgba(214,167,86,.28); color: #fff; }
   a { @apply underline-offset-4; }
@@ -24,7 +23,22 @@
 }
 
 @layer components {
-  .shell { @apply mx-auto w-full max-w-[1180px] px-5 sm:px-8; }
+  .site-frame { @apply mx-auto grid min-h-screen w-full max-w-[1440px] lg:grid-cols-[minmax(0,1fr)_310px]; }
+  .content-column { @apply min-w-0 lg:col-start-1 lg:row-start-1; }
+  .shell { @apply mx-auto w-full max-w-[920px] px-5 sm:px-10 lg:px-12; }
+  .side-panel { @apply z-20 border-b border-line bg-panel lg:sticky lg:top-0 lg:col-start-2 lg:row-start-1 lg:h-screen lg:overflow-y-auto lg:border-b-0 lg:border-l; }
+  .side-panel__inner { @apply flex min-h-full flex-col px-5 py-5 lg:px-7 lg:py-8; }
+  .side-panel__header { @apply mb-5 border-b border-line pb-5; }
+  .side-nav-list { @apply m-0 list-none p-0; }
+  .side-nav-list > li { @apply border-b border-line; }
+  .side-nav-link { @apply flex w-full items-center justify-between py-3.5 text-[13px] text-muted no-underline transition-colors hover:text-ink; }
+  .side-nav-link.is-active { @apply text-signal; }
+  .nav-index { @apply font-mono text-[9px] tracking-wider text-dim; }
+  .side-nav-link::-webkit-details-marker { display: none; }
+  .side-nav-link::marker { content: ''; }
+  .side-nav-sub { @apply mb-3 ml-3 border-l border-line pl-4; }
+  .side-nav-sub a { @apply block py-1.5 text-xs leading-5 text-dim no-underline transition-colors hover:text-ink; }
+  .side-nav-sub a.is-current { @apply text-ink; }
   .eyebrow { @apply font-mono text-[11px] uppercase tracking-[.18em] text-signal; }
   .rule { @apply border-t border-line; }
   .tag { @apply rounded-full border border-line px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-muted; }
@@ -42,4 +56,10 @@
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+@media (max-width: 1023px) {
+  .side-panel__inner { min-height: auto; }
+  .side-panel nav { @apply max-h-[42vh] overflow-y-auto; }
+  .side-panel__inner > div:last-child { @apply hidden; }
 }

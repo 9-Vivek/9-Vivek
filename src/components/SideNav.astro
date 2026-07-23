@@ -1,0 +1,40 @@
+---
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const current = Astro.url.pathname;
+const active = (path: string) => current === `${base}${path}` || current.startsWith(`${base}${path}/`);
+const groups = [
+  { label: 'Research', path: 'research', items: [['ACC framework', 'research/acc/'], ['H-BFT', 'research/h-bft/']] },
+  { label: 'Projects', path: 'projects', items: [['Digital Center', 'projects/digital-center/'], ['Explorer Engine', 'projects/explorer-engine/'], ['Personal Intelligence Layer', 'projects/pil/']] },
+  { label: 'Applied work', path: 'commercial', items: [['Semantic Workspace', 'commercial/semantic-workspace/'], ['AI Systems Institute', 'commercial/ai-systems-institute/']] },
+];
+---
+<aside class="side-panel" aria-label="Site navigation">
+  <div class="side-panel__inner">
+    <div class="side-panel__header">
+      <a href={base} class="flex items-center gap-3 no-underline">
+        <span class="grid size-9 place-items-center border border-line font-mono text-xs text-signal">VP</span>
+        <span><strong class="block text-sm font-medium text-ink">Vivek Pragada</strong><span class="font-mono text-[10px] uppercase tracking-wider text-dim">Research & engineering</span></span>
+      </a>
+    </div>
+    <nav aria-label="Primary">
+      <ul class="side-nav-list">
+        <li><a href={base} class:list={["side-nav-link", current === base && 'is-active']}><span>Home</span><span class="nav-index">00</span></a></li>
+        <li><a href={`${base}overview/`} class:list={["side-nav-link", active('overview') && 'is-active']}><span>Overview</span><span class="nav-index">01</span></a></li>
+        {groups.map((group, groupIndex) => (
+          <li>
+            <details open={active(group.path)}>
+              <summary class:list={["side-nav-link cursor-pointer", active(group.path) && 'is-active']}><span>{group.label}</span><span class="nav-index">0{groupIndex + 2}</span></summary>
+              <div class="side-nav-sub">
+                <a href={`${base}${group.path}/`} class:list={[current === `${base}${group.path}/` && 'is-current']}>Section overview</a>
+                {group.items.map(([label, path]) => <a href={`${base}${path}`} class:list={[active(path.replace(/\/$/, '')) && 'is-current']}>{label}</a>)}
+              </div>
+            </details>
+          </li>
+        ))}
+        <li><a href={`${base}certifications/`} class:list={["side-nav-link", active('certifications') && 'is-active']}><span>Certifications</span><span class="nav-index">05</span></a></li>
+        <li><a href={`${base}skills/`} class:list={["side-nav-link", active('skills') && 'is-active']}><span>Skills / Experience</span><span class="nav-index">06</span></a></li>
+      </ul>
+    </nav>
+    <div class="mt-auto border-t border-line pt-5 font-mono text-[10px] uppercase leading-5 tracking-wider text-dim">Software developer<br/>CS / AI student<br/>Local-first systems</div>
+  </div>
+</aside>

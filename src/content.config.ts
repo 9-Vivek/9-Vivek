@@ -21,6 +21,10 @@ export const collections = {
     loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
     schema: documentSchema,
   }),
+  commercial: defineCollection({
+    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/commercial' }),
+    schema: documentSchema,
+  }),
   notes: defineCollection({
     loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/notes' }),
     schema: documentSchema,
