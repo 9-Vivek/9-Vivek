@@ -1,9 +1,9 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import DocumentCard from '../../components/DocumentCard.astro';
+import { getVisibleCollection } from '../../lib/visibility';
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
-const docs = (await getCollection('research')).sort((a,b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+const docs = (await getVisibleCollection('research')).sort((a,b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
 <BaseLayout title="Research — Vivek" description="Research into Active Cognition Computing and cognitive-centric software.">
   <header class="shell py-14 sm:py-20"><p class="eyebrow">Research Index</p><div class="mt-5 max-w-2xl"><h1 class="text-4xl font-medium tracking-[-.035em] sm:text-5xl">Research</h1><p class="mt-6 text-base leading-8 text-muted">Formal work on Active Cognition Computing and the sovereign systems needed to support it. Both documents are in active development.</p></div></header>

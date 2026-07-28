@@ -10,7 +10,6 @@ This repository hosts my personal site and research hub, where I write about **A
 - **[Digital Center](src/content/projects/digital-center.md)** - a local-first desktop workspace (Tauri + React) for capturing signal and resuming work with context intact.
 - **[Personal Intelligence Layer](src/content/projects/pil.md)** - a filesystem-based reasoning pipeline that continuously derives structured understanding from personal information.
 - **[Semantic Workspace](src/content/commercial/semantic-workspace.md)** - an open-core VS Code extension that lets developers and coding agents navigate a codebase by purpose and intent, not just file path.
-- **[AI Systems Institute](src/content/commercial/ai-systems-institute.md)** - a learning platform teaching students to design, evaluate, and integrate complete AI systems.
 - **[Explorer Engine](src/content/projects/explorer-engine.md)** and **[H-BFT](src/content/research/h-bft.md)** - supporting research into deterministic data presentation and human-anchored, sovereign network infrastructure.
 
 I care about systems that are legible, local-first, and agency-preserving: software that helps people sustain thought instead of deciding for them.

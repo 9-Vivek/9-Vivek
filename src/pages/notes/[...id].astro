@@ -1,7 +1,8 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
 import ContentLayout from '../../layouts/ContentLayout.astro';
-export async function getStaticPaths() { return (await getCollection('notes')).map(entry => ({ params: { id: entry.id }, props: { entry } })); }
+import { getVisibleCollection } from '../../lib/visibility';
+export async function getStaticPaths() { return (await getVisibleCollection('notes')).map(entry => ({ params: { id: entry.id }, props: { entry } })); }
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
