@@ -27,6 +27,8 @@ These features remain independently owned but participate in one shared object u
 
 Specialized external systems can participate through mirrored objects. A book, research note, email, message, or issue can remain owned by its original platform while becoming searchable, referenceable, mountable into an LLM Workspace, or visible inside a Context Space. Digital Center provides cross-system visibility and operational access rather than attempting to absorb every domain into its native model.
 
+Connectors and extensions are the main surface through which that operating-layer role becomes practical. A connector translates the objects and signals of an external system into Digital Center's shared reference contracts while leaving the source system authoritative. Extensions can then add domain-specific actions, projections, or interface surfaces without forcing those concerns into the core application. Together, they allow calendars, PKMs, communication tools, development environments, reading services, and future systems to participate in a common contextual workspace while retaining their own data models and specialized workflows.
+
 ## Context Spaces and execution
 
 The Switchboard organizes work around **Context Spaces**: semantic domains such as a research thread, course, startup, or personal initiative. A space links to notes, archive items, calendar objects, Structures, and Workstreams while leaving each object under the authority of its original feature.
