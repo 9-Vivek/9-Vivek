@@ -11,7 +11,7 @@ category: Personal workspace
 
 Digital Center is a local-first desktop workspace for people who are continuously learning, building, reading, saving, and moving between different streams of work. Its central loop is **capture and return**: record what matters with minimal friction, then recover it later with enough context to continue.
 
-It is not intended to replace every calendar, editor, browser, or communication platform. It provides a personal layer above those tools - one environment where time, reference material, quick thoughts, active work, and outside signals can remain connected.
+It is not intended to replace every calendar, editor, browser, communication platform, or personal knowledge system. It sits above specialized tools as a personal operating layer: one environment where time, reference material, quick capture, active work, outside signals, and AI reasoning can remain operationally connected while information stays in the system best suited to own it.
 
 ## The workspace model
 
@@ -19,11 +19,13 @@ Digital Center combines several focused systems rather than forcing every kind o
 
 - **Calendar** represents events, tasks, deadlines, planning windows, and the intended rhythm of a week.
 - **Archive** is a fast memory index for saved links, papers, videos, and other external material, including a short note explaining why each item mattered.
-- **Notes** provides low-friction capture for thoughts that do not need structure yet, with optional one-way promotion into Obsidian.
+- **Notes** provides low-friction capture for thoughts that do not need structure yet, with optional promotion into a dedicated PKM such as Obsidian or Capacities.
 - **Workstreams** preserve a lightweight ordered path of work between a broad context and the concrete time blocks used to execute it.
 - **Structures** store and render custom visual artifacts such as diagrams, dashboards, and roadmaps without turning the workspace into a general code runtime.
 
 These features remain independently owned but participate in one shared object universe. Stable references, global tags, search projections, and object resolvers allow one feature to display another feature's objects without copying or mutating them.
+
+Specialized external systems can participate through mirrored objects. A book, research note, email, message, or issue can remain owned by its original platform while becoming searchable, referenceable, mountable into an LLM Workspace, or visible inside a Context Space. Digital Center provides cross-system visibility and operational access rather than attempting to absorb every domain into its native model.
 
 ## Context Spaces and execution
 
@@ -43,6 +45,8 @@ Canonical data remains local and feature-owned. Enrichment, embeddings, summarie
 
 The long-term objective is a personal operating layer that makes digital work easier to capture, search, connect, and resume - while remaining fast, legible, and owned by the user.
 
+As the system matures, one-time search can extend into persistent queries and saved views spanning both native and mirrored objects. The same maintained set of objects could then be represented as a list, table, timeline, calendar, board, or graph without changing which feature owns the underlying data.
+
 ## Big-picture position
 
-Digital Center is the primary integration laboratory for the ACC direction. It is where the research becomes a concrete desktop system: independent modules, shared object contracts, contextual organization, and explicit AI context control all have to work together in one usable environment. Within the broader portfolio, it demonstrates end-to-end product architecture and local-first application engineering rather than a single isolated feature.
+Digital Center is the primary integration laboratory for the ACC direction. It is where the research becomes a concrete desktop system: independent modules, shared object contracts, contextual organization, cross-system visibility, and explicit AI context control all have to work together in one usable environment. Within the broader portfolio, it demonstrates end-to-end product architecture and local-first application engineering rather than a single isolated feature.

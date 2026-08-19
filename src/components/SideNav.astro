@@ -5,7 +5,7 @@ const current = Astro.url.pathname;
 const active = (path: string) => current === `${base}${path}` || current.startsWith(`${base}${path}/`);
 const rawGroups = [
   { label: 'Research', path: 'research', items: [['ACC framework', 'research/acc/'], ['H-BFT network', 'research/h-bft/']] },
-  { label: 'Projects', path: 'projects', items: [['Digital Center', 'projects/digital-center/'], ['Explorer Engine', 'projects/explorer-engine/'], ['Personal Intelligence Layer', 'projects/pil/']] },
+  { label: 'Projects', path: 'projects', items: [['Digital Center', 'projects/digital-center/'], ['Relational Data Canvas', 'projects/rdc/'], ['Personal Intelligence Layer', 'projects/pil/']] },
   { label: 'Applied work', path: 'commercial', items: [['Semantic Workspace', 'commercial/semantic-workspace/'], ['AI Systems Institute', 'commercial/ai-systems-institute/']] },
 ];
 const groups = rawGroups.map((group) => ({
@@ -45,8 +45,8 @@ const groups = rawGroups.map((group) => ({
         <p class="font-mono text-[10px] uppercase tracking-[.16em] text-signal">Contact</p>
         <div class="mt-3 space-y-2 text-xs">
           <a href="https://github.com/9-Vivek" class="block text-muted no-underline hover:text-ink">GitHub <span class="float-right text-dim">↗</span></a>
-          <span class="block text-dim">Email <span class="float-right">forthcoming</span></span>
-          <span class="block text-dim">LinkedIn <span class="float-right">forthcoming</span></span>
+          <a href="mailto:vpragada@seas.upenn.edu" class="block text-muted no-underline hover:text-ink">Email <span class="float-right text-dim">↗</span></a>
+          <a href="https://www.linkedin.com/in/vivekpragada941/" class="block text-muted no-underline hover:text-ink">LinkedIn <span class="float-right text-dim">↗</span></a>
         </div>
       </div>
       <div class="mt-5 border-t border-line pt-5 font-mono text-[10px] uppercase leading-5 tracking-wider text-dim">Software developer<br/>CS / AI student<br/>Local-first systems</div>
