@@ -1,4 +1,4 @@
-# Vivek Pragada — Portfolio & Research Hub
+# Hi, I'm Vivek
 
 I'm a Computer Science & AI student at the University of Pennsylvania (rising junior), building software at the intersection of human-computer interaction research and local-first systems engineering.
 
@@ -13,20 +13,7 @@ This repository hosts my personal site and research hub, where I write about **A
 - **[H-BFT](src/content/research/h-bft.md)** — research into human-anchored, sovereign network infrastructure for private-by-default local-first systems.
 - **[Semantic Workspace](src/content/commercial/semantic-workspace.md)** — an open-core VS Code extension that lets developers and coding agents navigate a codebase by purpose and intent, not just file path.
 
-I care about systems that are legible, local-first, and agency-preserving: software that helps people sustain thought instead of deciding for them.
-
-## Site structure
-
-The homepage introduces my work and serves as the hub for the site. A persistent right-side navigation panel connects the major sections:
-
-- **Overview** — ACC's direction and the relationship between the research and engineering work.
-- **Research** — the ACC framework and H-BFT specification.
-- **Projects** — Digital Center, RDC, and the Personal Intelligence Layer.
-- **Applied Work** — public-facing applications of the broader technical direction.
-- **Professional Credentials** — certifications and current coursework.
-- **Professional Capabilities** — skills and experience.
-
-The panel also contains direct links to [GitHub](https://github.com/9-Vivek), [LinkedIn](https://www.linkedin.com/in/vivekpragada941/), and [email](mailto:vpragada@seas.upenn.edu).
+I care about systems that are transparent, reliable, and most importantly, agency-preserving: software that helps people sustain thought instead of deciding for them. Each one of these projects ties back to the overarching ACC framework, details explained on the site.
 
 ## Development
 
