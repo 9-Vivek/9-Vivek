@@ -1,8 +1,8 @@
 # Hi, I'm Vivek
 
-I'm a Computer Science & AI student at the University of Pennsylvania (rising junior), building software at the intersection of human-computer interaction research and local-first systems engineering.
+I'm a Computer Science & AI student at the University of Pennsylvania (junior), building software at the intersection of human-computer interaction research and local-first systems engineering.
 
-This repository hosts my personal site and research hub, where I write about **Active Cognition Computing (ACC)**—a framework for software that maintains context and cognitive state rather than merely storing artifacts—and build the projects that test it in practice.
+This repository hosts my personal site and research hub. Currently a huge WIP (just made this)!
 
 ## What I'm working on
 
